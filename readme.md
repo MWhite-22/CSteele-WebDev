@@ -1,2 +1,2 @@
-## Colt Steele - Web Dev Bootcamp
-# Michael J White
+# Colt Steele - Web Dev Bootcamp
+##### Michael J White
