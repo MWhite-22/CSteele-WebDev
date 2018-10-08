@@ -15,4 +15,7 @@
     - isEven => Checks if input is number and returns TRUE if even
     - factorial => Returns the factorial of an input
     - kebabToSnake => Replaces "-" with "_" in a string
+- ToDo List
+    - forEach and while loops that create a basic list appiaction
+    - all output is shown in the console
 
