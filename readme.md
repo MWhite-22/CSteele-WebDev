@@ -18,3 +18,6 @@
 - ToDo List
     - forEach and while loops that create a basic list appiaction
     - all output is shown in the console
+- ScoreKeeper
+    - DOM Manipulation
+    - Callback Functions

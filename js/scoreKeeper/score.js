@@ -24,7 +24,7 @@ function addPoint1(){
     }
     p1score++;
     p1display.innerHTML = p1score;
-    if (p1score == playTo){
+    if (p1score === playTo){
         p1display.classList.add("winner");
         gameOver = true;
     }
@@ -36,7 +36,7 @@ function addPoint2(){
     }
     p2score++;
     p2display.innerHTML = p2score;
-    if (p2score == playTo){
+    if (p2score === playTo){
         p2display.classList.add("winner");
         gameOver = true;
     }
@@ -53,6 +53,6 @@ function resetScore(){
 }
 
 function newPlayTo(){
-    playTo = playToInput.value;
+    playTo = Number(playToInput.value);
     playToDisplay.innerHTML = playTo;
 }
