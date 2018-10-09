@@ -1,0 +1,23 @@
+body{
+    background: #eee;
+    text-align: center;
+}
+
+h1{
+    font-size: 5rem;
+    margin: 2rem 0;
+}
+
+p{
+    margin: 1rem;
+    font-style: italic;
+}
+
+#playTo{
+    display: block;
+    margin: 1rem auto;
+}
+
+.winner{
+    color: green;
+}
