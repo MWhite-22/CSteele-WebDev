@@ -21,3 +21,21 @@
 - ScoreKeeper
     - DOM Manipulation
     - Callback Functions
+- colorGame
+    - Randomly creates six colors and selects one as the "Chosen" color
+    - The user must then click on the boxes, attempting to guess the chosen RGB color
+
+---
+
+### Node
+- firstExpressApp
+    - Including Express in app.js
+    - Creating a listen function for post 3000
+    - Adding Routes for various urls
+        - Home Page
+        - Posts Page
+        - Friends List Page
+        - A random subcategory page
+        - A catch all for 404 style errors
+    - Using inclusion of partials for headers/footers
+    - Making a POST form for variable updating (No DB integration yet)
