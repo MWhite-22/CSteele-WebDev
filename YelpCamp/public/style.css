@@ -24,3 +24,13 @@ footer{
 	background-color: #555;
 	color: #fff;
 }
+
+/* ========================================
+			404 Page
+======================================== */
+
+#404_error{
+	text-align: center;
+	font-size: 2rem;
+	color: blue;
+}

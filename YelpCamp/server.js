@@ -19,6 +19,14 @@ app.get('/', (req, res)=>{
 	res.render('home');
 });
 
+app.get('/campgrounds', (req, res)=>{
+	res.render('campgrounds');
+});
+
+app.get('/*', (req, res)=>{
+	res.render('404');
+});
+
 // ========================================
 // 			Listener
 // ========================================
