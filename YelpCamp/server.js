@@ -3,6 +3,7 @@
 // ========================================
 const express = require ('express');
 const app = express();
+const bodyParser = require('body-parser');
 
 const port = "8080";
 
@@ -11,6 +12,7 @@ const port = "8080";
 // ========================================
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // ========================================
 // 			Routes
@@ -25,8 +27,17 @@ app.get('/campgrounds', (req, res)=>{
 		{name: 'Hilly Hill', image: 'https://images.pexels.com/photos/1061640/pexels-photo-1061640.jpeg?cs=srgb&dl=bonfire-camp-campfire-1061640.jpg&fm=jpg'},
 		{name: 'Mnt. Mountain', image: 'https://images.pexels.com/photos/803226/pexels-photo-803226.jpeg?cs=srgb&dl=camping-clouds-dawn-803226.jpg&fm=jpg'},
 	];
-
 	res.render('campgrounds', {campgrounds: campgrounds});
+});
+
+app.post('/campgrounds', (req, res)=>{
+	let name = req.params.name;
+	let imgURL = req.params.imgURL;
+	res.send('POST ROUTE for CAMPGROUNDS');
+});
+
+app.get('/campgrounds/new', (req, res)=>{
+	res.render('newCampground');
 });
 
 app.get('/*', (req, res)=>{
