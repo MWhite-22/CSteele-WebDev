@@ -20,7 +20,13 @@ app.get('/', (req, res)=>{
 });
 
 app.get('/campgrounds', (req, res)=>{
-	res.render('campgrounds');
+	let campgrounds = [
+		{name: 'Salmon Creek', image: 'https://images.pexels.com/photos/450441/pexels-photo-450441.jpeg?cs=srgb&dl=adventure-boy-camping-450441.jpg&fm=jpg'},
+		{name: 'Hilly Hill', image: 'https://images.pexels.com/photos/1061640/pexels-photo-1061640.jpeg?cs=srgb&dl=bonfire-camp-campfire-1061640.jpg&fm=jpg'},
+		{name: 'Mnt. Mountain', image: 'https://images.pexels.com/photos/803226/pexels-photo-803226.jpeg?cs=srgb&dl=camping-clouds-dawn-803226.jpg&fm=jpg'},
+	];
+
+	res.render('campgrounds', {campgrounds: campgrounds});
 });
 
 app.get('/*', (req, res)=>{
