@@ -1,3 +1,9 @@
 <% include partials/header.ejs %>
 <h1>The home page</h1>
+
+<p>Search for a movie:</p>
+<form action="/movies" method="GET">
+	<input type="text" name="search" id="search">
+	<input type="submit">
+</form>
 <% include partials/footer.ejs %>

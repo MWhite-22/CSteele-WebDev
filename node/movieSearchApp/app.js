@@ -31,15 +31,13 @@ app.get('/', (req, res)=>{
 	res.render("home");
 });
 
-app.get('/movies/:search', (req, res)=>{
-	const search = req.params.search;
+app.get('/movies', (req, res)=>{
+	const search = req.query.search;
 	let query = omdbQuery(search);
 	request(query, (error, response, body)=>{
 		let parsedBody = JSON.parse(body);
 		if(!error && response.statusCode == 200){
 			res.render("movieList", {search: search, body: parsedBody});
-		} else {
-			res.render("movieList", {search: search, body: "Fail"});
 		}
 	});
 });
