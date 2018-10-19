@@ -29,8 +29,8 @@ footer{
 			404 Page
 ======================================== */
 
-#404_error{
+#error_404{
 	text-align: center;
 	font-size: 2rem;
-	color: blue;
+	color: #000;
 }
