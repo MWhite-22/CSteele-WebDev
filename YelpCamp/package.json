@@ -1,0 +1,11 @@
+{
+  "name": "yelp-camp-mwhite",
+  "version": "1.0.0",
+  "description": "CSteele - WebDev - YelpCamp Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "author": "MWhite",
+  "license": "ISC"
+}
