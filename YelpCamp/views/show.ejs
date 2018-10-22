@@ -1,0 +1,21 @@
+<% include partials/header %>
+
+	<h1>Single Campground Page</h1>
+
+	<div class="singlePage">
+		<div class="header">
+			<p class="title">Campground Name: <%= campground.name %></p>
+			<div class="likes">
+				<button id="likeButton"><%= campground.likes %></button>
+			</div>
+		</div>
+		<img src="<%= campground.image %>" alt="Campground Image">
+		<p class="description_title">Description:</p>
+		<p class="description"><%= campground.description %></p>
+	</div>
+
+	<div>
+		<a href="/campgrounds">Back to all Campgrounds</a>
+	</div>
+
+<% include partials/footer %>
