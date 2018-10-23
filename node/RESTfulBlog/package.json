@@ -1,0 +1,17 @@
+{
+  "name": "restfulblog",
+  "version": "1.0.0",
+  "description": "RESTful Blog App",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "MWhite",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.6"
+  }
+}
