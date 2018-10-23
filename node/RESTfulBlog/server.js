@@ -1,18 +1,20 @@
 // ========================================
 // 			Require/Include
 // ========================================
-const 	express 	= require('express'),
-		app 		= express(),
-		port 		= '3000',
-		mongoose 	= require('mongoose'),
-		bodyParser 	= require('body-parser'),
-		db 			= require('./db');
+const 	express 		= require('express'),
+		app 			= express(),
+		port 			= '3000',
+		mongoose 		= require('mongoose'),
+		bodyParser 		= require('body-parser'),
+		methodOverride 	= require('method-override'),
+		db 				= require('./db');
 
 // ========================================
 // 			Node Config
 // ========================================
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
 // ========================================
@@ -96,6 +98,46 @@ app.get('/blogs/:id', (req, res)=>{
 			res.redirect('/blogs');
 		}else{
 			res.render('single', {blog: blog});
+		}
+	});
+});
+
+app.put('/blogs/:id', (req, res)=>{
+	let id = req.params.id;
+	let blogData = req.body.blog; 
+	Blog.findByIdAndUpdate(id, blogData, (err, blog)=>{
+		if(err){
+			console.log('Single Blog Update Error');
+			console.log(err);
+			res.redirect('/blogs');
+		}else{
+			res.redirect('/blogs/' + id);
+		}
+	});
+});
+
+app.delete('/blogs/:id', (req, res)=>{
+	let id = req.params.id;
+	Blog.findByIdAndRemove(id, (err)=>{
+		if(err){
+			console.log('Single Blog Delete Error');
+			console.log(err);
+			res.redirect('/blogs');
+		}else{
+			res.redirect('/blogs');
+		}
+	});
+});
+
+app.get('/blogs/:id/edit', (req, res)=>{
+	let id = req.params.id;
+	Blog.findById(id, (err, blog)=>{
+		if(err){
+			console.log('Single Edit Page Error');
+			console.log(err);
+			res.redirect('/blogs');
+		}else{
+			res.render('edit', {blog: blog});
 		}
 	});
 });

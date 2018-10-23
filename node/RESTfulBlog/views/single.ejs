@@ -13,6 +13,10 @@
 			</div>
 		</div>
 	</div>
+	<a href="/blogs/<%= blog._id %>/edit" class="ui big blue button">Edit Blog Post</a>
+	<form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST" id="deleteForm">
+		<input type="submit" class="ui big inverted red button" id="deleteButton" value="Delete Blog Post">
+	</form>
 </div>
 
 <% include partials/footer.ejs %>

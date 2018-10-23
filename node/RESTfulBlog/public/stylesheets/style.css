@@ -5,3 +5,7 @@ i.icon{
 header{
 	margin-top: 4rem !important;
 }
+
+#deleteForm, #deleteButton{
+	float: right;
+}
