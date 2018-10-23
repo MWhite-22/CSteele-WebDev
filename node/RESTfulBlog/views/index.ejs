@@ -8,6 +8,7 @@
 			<h2><%= blog.title %></h2>
 			<p class="created"><%= blog.created %></p>
 			<p><%= blog.body %></p>
+			<a href="/blogs/<%= blog._id %>" class="more">Read More</a>
 		</div>
 		<img src="<%= blog.image %>" alt="Blog Image" class="blogPost_image">
 	</div>

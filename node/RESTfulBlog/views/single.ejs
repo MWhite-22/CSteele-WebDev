@@ -1,0 +1,14 @@
+<% include partials/header.ejs %>
+
+<h1>Single Blog Post</h1>
+
+<div class="blogPost">
+	<div class="blogPost_text">
+		<h2><%= blog.title %></h2>
+		<p class="created"><%= blog.created %></p>
+		<p><%= blog.body %></p>
+	</div>
+	<img src="<%= blog.image %>" alt="Blog Image" class="blogPost_image">
+</div>
+
+<% include partials/footer.ejs %>

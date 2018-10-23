@@ -70,6 +70,36 @@ app.get('/blogs', (req, res)=>{
 	});
 });
 
+app.post('/blogs', (req, res)=>{
+	let blogData = req.body.blog;
+	Blog.create(blogData, (err, blog)=>{
+		if(err){
+			console.log('DB CREATE ERROR:');
+			console.log(err);
+			res.render('new');
+		} else {
+			res.redirect('/blogs');
+		}
+	});
+});
+
+app.get('/blogs/new', (req, res)=>{
+	res.render('new');
+});
+
+app.get('/blogs/:id', (req, res)=>{
+	let id = req.params.id;
+	Blog.findById(id, (err, blog)=>{
+		if(err){
+			console.log('Single Page Error');
+			console.log(err);
+			res.redirect('/blogs');
+		}else{
+			res.render('single', {blog: blog});
+		}
+	});
+});
+
 app.get('*', (req, res)=>{
 	res.send('404: Page Not Found');
 });
