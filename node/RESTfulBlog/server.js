@@ -41,19 +41,6 @@ const blogSchema = new mongoose.Schema({
 
 const Blog = mongoose.model('Blog', blogSchema);
 
-// Blog.create({
-// 	title: 'Hungry Blog',
-// 	image: 'https://images.unsplash.com/photo-1540265556701-ae209ac395cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2fd1a50c008e6d870e103603d5c7a294&auto=format&fit=crop&w=500&q=60',
-// 	body: 'I LOVE FOOD. FOOD IS LIFE. FEED ME'
-// }, (err, blog)=>{
-// 	if(err){
-// 		console.log('DB CREATE ERROR:');
-// 		console.log(err);
-// 	} else {
-// 		console.log(blog);
-// 	}
-// });
-
 // ========================================
 // 			Routes
 // ========================================
