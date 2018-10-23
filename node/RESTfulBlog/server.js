@@ -56,7 +56,7 @@ const Blog = mongoose.model('Blog', blogSchema);
 // 			Routes
 // ========================================
 app.get('/', (req, res)=>{
-	res.redirect('/blogs');
+	res.render('home');
 });
 
 app.get('/blogs', (req, res)=>{
