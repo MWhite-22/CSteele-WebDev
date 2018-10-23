@@ -1,0 +1,43 @@
+header, footer{
+	padding: 1rem 5rem;
+	text-align: center;
+	background-color: #ccc;
+}
+
+main{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+img{
+	max-width: 400px;
+	height: auto;
+}
+
+.blogPost{
+	display: flex;
+	flex-direction: row;
+	margin: .5rem auto;
+	background-color: #eee;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.blogPost_text{
+	flex: 1 0 250px;
+	padding: .5rem;
+}
+
+.created{
+	font-weight: 300;
+	font-size: .75rem;
+	margin: .2rem 0;
+	color: #aaa;
+}
+
+.blogPost_image{
+	width: 250px;
+	height: 250px;
+	border-radius: 10px;
+}
