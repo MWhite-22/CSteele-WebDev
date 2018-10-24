@@ -4,17 +4,15 @@
 
 	<div class="campground_feed">
 		<% campgrounds.forEach((e)=>{ %>
-			<div class="campground">
-				<a href="/campgrounds/<%= e._id %>">
-					<img src="<%= e.image %>" alt="campground image" class='camp_img'>
+			<a href="/campgrounds/<%= e._id %>" class="campground_card">
+				<img src="<%= e.image %>" alt="campground image" class='camp_img'>
+				<div class="camp_content">
 					<p class="camp_title"><%= e.name %></p>
-				</a>	
-			</div>
+				</div>
+			</a>	
 		<% }); %>
 	</div>
 
-	<div>
-		<a href="/campgrounds/new">Add a new campground!</a>
-	</div>
+	<a href="/campgrounds/new" class="button">Add a new campground!</a>
 
 <% include partials/footer %>
