@@ -91,12 +91,8 @@ footer{
 .camp_title{
 	text-align: center;
 	font-weight: 700;
-	font-size: 2rem;
+	font-size: 1.25rem;
 	transition: .1s ease-in-out;
-}
-
-.campground_card:hover .camp_img{
-	transform: scale(1.1);
 }
 
 .campground_card:hover .camp_title{

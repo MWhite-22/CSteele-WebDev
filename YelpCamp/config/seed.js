@@ -14,27 +14,27 @@ mongoose.connect(db, {useNewUrlParser: true}, (err)=>{
 const seedData = [
 	{
 		name: "Salmon Creek",
-		image: "https://images.pexels.com/photos/450441/pexels-photo-450441.jpeg",
+		image: "https://images.pexels.com/photos/450441/pexels-photo-450441.jpeg?auto=compress&cs=tinysrgb",
 		description: "Lots of fish. Lots of stank",
 	},
 	{
 		name: "Hilly Hill",
-		image: "https://images.pexels.com/photos/1061640/pexels-photo-1061640.jpeg",
+		image: "https://images.pexels.com/photos/1061640/pexels-photo-1061640.jpeg?auto=compress&cs=tinysrgb",
 		description: "Get your hiking boots ready - this one is a doozy",
 	},
 	{
 		name: "Mnt. Mountain",
-		image: "https://images.pexels.com/photos/803226/pexels-photo-803226.jpeg",
+		image: "https://images.pexels.com/photos/803226/pexels-photo-803226.jpeg?auto=compress&cs=tinysrgb",
 		description: "Climb your ass all the way up, just to then climb your ass all the way down. FUN!",
 	},
 	{
 		name: "Happy Place",
-		image: "https://images.pexels.com/photos/699558/pexels-photo-699558.jpeg",
+		image: "https://images.pexels.com/photos/699558/pexels-photo-699558.jpeg?auto=compress&cs=tinysrgb",
 		description: "Friends, Family, Fun, Fear of Poison Ivy. What more could you ask for?",
 	},
 	{
 		name: "Beach Blast",
-		image: "https://images.pexels.com/photos/260593/pexels-photo-260593.jpeg",
+		image: "https://images.pexels.com/photos/260593/pexels-photo-260593.jpeg?auto=compress&cs=tinysrgb",
 		description: "Watch out for sinkholes at this wild beach camp ground",
 	}
 ];
