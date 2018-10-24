@@ -1,29 +1,30 @@
 // ========================================
 // 			Require / Import
 // ========================================
-const express = require ('express');
-const app = express();
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const 	bodyParser 	= require('body-parser'),
+		mongoose 	= require('mongoose'),
+	 	express 	= require('express'),
+	 	app 		= express();
 
-const port = "8080";
+// DataBase Models
+const Campground = require("./models/campground");
+
+// Environment Variables
+const port 			= "8080";
 
 // ========================================
 // 			DB Connect
 // ========================================
 const db = require('./db');
 
-mongoose.connect(db, {useNewUrlParser: true});
-
-// Setting Schema
-let campSchema = new mongoose.Schema({
-	name: {type: String, default: 'Default Name'},
-	image: String,
-	description: String,
-	likes: {type: Number, default: 0}
+mongoose.connect(db, {useNewUrlParser: true}, (err)=>{
+	if(err){
+		console.log('DB Connect Error:');
+		console.log(err);
+	}else{
+		console.log('Connected to YelpCamp Database');
+	}
 });
-
-let Campground = mongoose.model('Campground', campSchema);
 
 // ========================================
 // 			Node Config
