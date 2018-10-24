@@ -6,7 +6,7 @@ let campSchema = new mongoose.Schema({
 	description: {type: String, trim: true},
 	likes: {type: Number, default: 0},
 	score: {type: Number, default: 0},
-	created: {type: Date, defaut: Date.now}
+	created: {type: Date, default: Date.now}
 });
 
 module.exports = mongoose.model('Campground', campSchema);
