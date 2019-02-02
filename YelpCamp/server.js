@@ -9,6 +9,7 @@ const 	bodyParser 		= require('body-parser'),
 
 // DataBase Models
 const Campground = require("./models/campground");
+const Comment = require("./models/comment");
 
 // Environment Variables
 const port 			= "8080";
@@ -74,7 +75,7 @@ app.get('/campgrounds/new', (req, res)=>{
 
 app.get('/campgrounds/:id', (req, res)=>{
 	let id = req.params.id;
-	Campground.findById(id, (err, foundID)=>{
+	Campground.findById(id).populate("comments").exec((err, foundID)=>{
 		if(err){
 			console.log('Error:');
 			console.log(err);

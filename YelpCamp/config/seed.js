@@ -1,5 +1,6 @@
 const 	mongoose 	= require('mongoose'),
 		Campground 	= require('../models/campground'),
+		Comment		= require('../models/comment'),
 		db			= require('../db.js');
 
 mongoose.connect(db, {useNewUrlParser: true}, (err)=>{
@@ -41,23 +42,48 @@ const seedData = [
 
 
 function seedDB(){
-	Campground.remove({}, (err)=>{
+	Comment.remove({}, (err)=>{
 		if(err){
 			console.log(err);
 		} else {
-			console.log("Removed all campgrounds");
-			seedData.forEach((seed)=>{
-				Campground.create(seed, (err, camp)=>{
-					let name = camp.name;
-					if(err){
-						console.log(err);
-					} else {
-						console.log("Added '"+name+"' to campgrounds");
-					};
-				});
-			});
+			console.log('All Comments Removed');
 		}
-	});
+	}).then(
+		Campground.remove({}, (err)=>{
+			if(err){
+				console.log(err);
+			} else {
+				console.log("Removed all campgrounds");
+				let i = 1;
+				seedData.forEach((seed)=>{
+					Campground.create(seed, (err, camp)=>{
+						let name = camp.name;
+						if(err){
+							console.log(err);
+						} else {
+							console.log("Added '"+name+"' to campgrounds");
+
+							Comment.create(
+								{
+									text: `Seed Comment for ${name} - Comment ${i} - Test Test Test`,
+									author: "MWhite"
+								}, (err, comment)=>{
+									if(err){
+										console.log(err);
+									}else{
+										camp.comments.push(comment);
+										camp.save();
+										console.log(`Comment ${i} has been created for post ${name}`);
+										i++;
+									}
+								}
+							);
+						};
+					});
+				});
+			}
+		})
+	);
 };
 
 seedDB();

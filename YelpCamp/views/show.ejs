@@ -12,6 +12,15 @@
 		<img src="<%= campground.image %>" alt="Campground Image">
 		<p class="description_title">Description:</p>
 		<p class="description"><%= campground.description %></p>
+		<% 
+			campground.comments.forEach((comment)=>{
+		%>
+			<p class="comment">
+				<%= comment.text %> - BY: <%= comment.author %>-
+			</p>
+		<% 
+			})
+		%>
 	</div>
 
 	<div>
