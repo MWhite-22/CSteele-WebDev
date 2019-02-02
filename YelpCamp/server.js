@@ -1,10 +1,11 @@
 // ========================================
 // 			Require / Import
 // ========================================
-const 	bodyParser 	= require('body-parser'),
-		mongoose 	= require('mongoose'),
-	 	express 	= require('express'),
-	 	app 		= express();
+const 	bodyParser 		= require('body-parser'),
+		methodOverride  = require('method-override'),
+		mongoose 		= require('mongoose'),
+	 	express 		= require('express'),
+	 	app 			= express();
 
 // DataBase Models
 const Campground = require("./models/campground");
@@ -31,6 +32,7 @@ mongoose.connect(db, {useNewUrlParser: true}, (err)=>{
 // ========================================
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 // ========================================
