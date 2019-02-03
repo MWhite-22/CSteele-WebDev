@@ -11,9 +11,14 @@ const 	bodyParser 		= require('body-parser'),
 	 	app 			= express();
 
 // DataBase Models
-const Campground 	= require("./models/campground");
-const Comment 		= require("./models/comment");
-const User 			= require("./models/user");
+const 	Campground 		= require("./models/campground"),
+		Comment 		= require("./models/comment"),
+		User 			= require("./models/user");
+
+//Routes
+const 	campgroundRoutes 	= require('./routes/campgrounds'),
+		commentRoutes		= require('./routes/comments'),
+		authRoutes			= require('./routes/auth');
 
 // Environment Variables
 const port 			= "8080";
@@ -74,83 +79,9 @@ app.use((req, res, next)=>{
 // ========================================
 // 			Routes
 // ========================================
-app.get('/', (req, res)=>{
-	res.render('home');
-});
-
-app.get('/login', (req, res)=>{
-	res.render('login');
-});
-
-app.post('/login', passport.authenticate('local', {
-	successRedirect: '/campgrounds',
-	failureRedirect: '/login'
-}));
-
-app.get('/register', (req, res)=>{
-	res.render('register');
-});
-
-app.post('/register', (req, res)=>{
-	const newUser = new User({username: req.body.username});
-	User.register(newUser, req.body.password, (err, user)=>{
-		if(err){
-			console.log(err);
-			return res.redirect('/register');
-		} else {
-			passport.authenticate('local')(req, res, ()=>{
-				res.redirect('/campgrounds');
-			});
-		}
-	});
-});
-
-app.get('/logout', (req, res)=>{
-	req.logout();
-	res.redirect('/');
-});
-
-app.get('/campgrounds', isLoggedIn, (req, res)=>{
-	Campground.find({}, (err, campgrounds)=>{
-		if(err){
-			console.log('Error:');
-			console.log(err);
-		} else {
-			res.render('index', {campgrounds: campgrounds});
-		}
-	});
-});
-
-app.post('/campgrounds', (req, res)=>{
-	let name = req.body.name;
-	let imgURL = req.body.imgURL;
-	let description = req.body.description;
-	let newCampground = {name: name, image: imgURL, description: description};
-	Campground.create(newCampground, (err, cg)=>{
-		if(err){
-			console.log('Error:');
-			console.log(err);
-		} else {
-			res.redirect('/campgrounds');
-		}
-	});
-});
-
-app.get('/campgrounds/new', (req, res)=>{
-	res.render('new');
-});
-
-app.get('/campgrounds/:id', (req, res)=>{
-	let id = req.params.id;
-	Campground.findById(id).populate("comments").exec((err, foundID)=>{
-		if(err){
-			console.log('Error:');
-			console.log(err);
-		} else {
-			res.render('show', {campground: foundID});
-		}
-	});
-});
+app.use(authRoutes);
+app.use('/campgrounds', campgroundRoutes);
+app.use('/campgrounds/:id/comments', commentRoutes);
 
 app.get('/*', (req, res)=>{
 	res.render('404');

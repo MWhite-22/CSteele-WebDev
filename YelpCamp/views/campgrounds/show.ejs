@@ -1,4 +1,4 @@
-<% include partials/header %>
+<% include ../partials/header %>
 
 	<h1>Single Campground Page</h1>
 
@@ -21,10 +21,16 @@
 		<% 
 			})
 		%>
+
+		<div >
+			<ul>
+				<li style="margin: 2rem 0;"><a href="../campgrounds/<%=campground._id%>/comments/new" class="button">Add a new Comment</a></li>
+			</ul>
+		</div>
 	</div>
 
 	<div>
 		<a href="/campgrounds" class="button">Back to all Campgrounds</a>
 	</div>
 
-<% include partials/footer %>
+<% include ../partials/footer %>
