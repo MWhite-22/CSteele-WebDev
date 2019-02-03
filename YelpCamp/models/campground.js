@@ -4,6 +4,16 @@ const campSchema = new mongoose.Schema({
 	name: {type: String, default: 'Default Name'},
 	image: String,
 	description: {type: String, trim: true},
+	author:{
+		id:{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "User"
+			},
+		username: {
+			type: String,
+			default: 'Admin'
+			}
+		},
 	comments:[
 		{
 			type: mongoose.Schema.Types.ObjectId,

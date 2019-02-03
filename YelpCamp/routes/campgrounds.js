@@ -5,7 +5,7 @@ const 	express 	= require('express'),
 // ========================================
 // 			List all Campgrounds
 // ========================================
-router.get('/', isLoggedIn, (req, res)=>{
+router.get('/', (req, res)=>{
 	Campground.find({}, (err, campgrounds)=>{
 		if(err){
 			console.log('Error:');
@@ -19,16 +19,22 @@ router.get('/', isLoggedIn, (req, res)=>{
 // ========================================
 // 			Add New Campground Logic
 // ========================================
-router.post('/', (req, res)=>{
-	let name = req.body.name;
-	let imgURL = req.body.imgURL;
-	let description = req.body.description;
-	let newCampground = {name: name, image: imgURL, description: description};
-	Campground.create(newCampground, (err, cg)=>{
+router.post('/', isLoggedIn, (req, res)=>{
+	const newCampground = {
+		name: req.body.name,
+		image: req.body.imgURL,
+		description: req.body.description,
+		author: {
+			id: req.user._id,
+			username: req.user.username
+		}
+	};
+	Campground.create(newCampground, (err, campground)=>{
 		if(err){
 			console.log('Error:');
 			console.log(err);
 		} else {
+			console.log('New Campground - '+campground.name+' added');
 			res.redirect('/campgrounds');
 		}
 	});
@@ -37,7 +43,7 @@ router.post('/', (req, res)=>{
 // ========================================
 // 			Render New Campground Form
 // ========================================
-router.get('/new', (req, res)=>{
+router.get('/new', isLoggedIn, (req, res)=>{
 	res.render('campgrounds/new');
 });
 

@@ -5,7 +5,7 @@ const 	express 	= require('express'),
 
 
 // ========================================
-// 			New Comment Page
+// 		New Comment Page
 // ========================================
 router.get('/new', isLoggedIn, (req, res)=>{
 	Campground.findById(req.params.id, (err, campground)=>{
@@ -18,7 +18,7 @@ router.get('/new', isLoggedIn, (req, res)=>{
 });
 
 // ========================================
-// 			Handles New Comment Logic
+// 		Handles New Comment Logic
 // ========================================
 router.post('/', isLoggedIn, (req, res)=>{
 	Campground.findById(req.params.id, (err, campground)=>{
@@ -30,6 +30,9 @@ router.post('/', isLoggedIn, (req, res)=>{
 				if(err){
 					console.log(err);
 				}else{
+					comment.author.id = req.user._id;
+					comment.author.username = req.user.username;
+					comment.save();
 					campground.comments.push(comment);
 					campground.save();
 					res.redirect('/campgrounds/'+campground._id);

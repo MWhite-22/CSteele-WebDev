@@ -11,9 +11,7 @@ const 	bodyParser 		= require('body-parser'),
 	 	app 			= express();
 
 // DataBase Models
-const 	Campground 		= require("./models/campground"),
-		Comment 		= require("./models/comment"),
-		User 			= require("./models/user");
+const 	User 			= require("./models/user");
 
 //Routes
 const 	campgroundRoutes 	= require('./routes/campgrounds'),
@@ -63,14 +61,6 @@ passport.deserializeUser(User.deserializeUser());
 // ========================================
 // 			Middleware
 // ========================================
-function isLoggedIn(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	} else{
-		res.redirect('/login');
-	}
-}
-
 app.use((req, res, next)=>{
 	res.locals.currentUser = req.user;
 	next();
@@ -90,7 +80,6 @@ app.get('/*', (req, res)=>{
 // ========================================
 // 			Listener
 // ========================================
-
 app.listen(port, ()=>{
 	console.log('Server started on port: '+port);
 });
