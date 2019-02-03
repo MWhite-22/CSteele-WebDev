@@ -10,10 +10,19 @@
 </head>
 <body>
 	<nav>
-		<ul>
+		<ul class="leftHeaderMenu">
 			<li id="CoTitle">YelpCamp</li>
 			<li><a href="/">Home</a></li>
 			<li><a href="/campgrounds">View All Campgrounds</a></li>
+		</ul>
+		<ul class="rightHeaderMenu">
+		<% if(!currentUser){ %>
+			<li><a href="/login">Login</a></li>
+			<li><a href="/register">Register</a></li>
+		<% }else{ %>
+			<li>Signed In As: <%= currentUser.username %></li>
+			<li><a href="/logout">Logout</a></li>
+		<% } %>
 		</ul>
 	</nav>
 	<header>

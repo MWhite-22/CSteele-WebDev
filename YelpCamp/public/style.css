@@ -11,10 +11,13 @@ nav ul{
 	align-items: center;
 }
 
-nav ul li a, 
-#CoTitle{
-	padding: .5rem 1rem;
-	font-size: 2rem;
+nav ul li{
+	padding: 1rem .5rem;
+}
+
+nav ul li a{
+	padding: .5rem .5rem;
+	font-size: 1rem;
 	text-decoration: none;
 }
 
@@ -25,6 +28,14 @@ header{
 	border-bottom: 2px solid rgba(0, 0, 0, .2);
 	text-align: center;
 	font-size: 2rem;
+}
+
+.leftHeaderMenu{
+	float:left;
+}
+
+.rightHeaderMenu{
+	float:right;
 }
 
 header h1 a{
