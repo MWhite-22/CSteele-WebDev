@@ -40,7 +40,7 @@ router.post('/register', (req, res)=>{
 	User.register(newUser, req.body.password, (err, user)=>{
 		if(err){
 			console.log(err);
-			return res.redirect('/register');
+				res.redirect('/register');
 		} else {
 			passport.authenticate('local')(req, res, ()=>{
 				res.redirect('/campgrounds');
